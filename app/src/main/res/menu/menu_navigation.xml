@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/newQuotationFragment"
+        android:title="@string/quotations"
+        android:icon="@drawable/home" />
+    <item android:id="@+id/favouritesFragment"
+        android:title="@string/favourites"
+        android:icon="@drawable/favourite" />
+    <item android:id="@+id/settingsFragment"
+        android:title="@string/settings"
+        android:icon="@drawable/settings" />
+</menu>
