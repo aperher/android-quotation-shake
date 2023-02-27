@@ -3,7 +3,10 @@
     <string name="get_a_new_quotation">Get a new quotation</string>
     <string name="favourite_quotations">Favourite quotations</string>
     <string name="about">About</string>
+    <string name="aboutDialog">QuotationShake by \n\nAlberto Pérez Herrero\n\naperher@inf.upv.es\n\nDeveloped for DADM 2023</string>
     <string name="settings">Settings</string>
     <string name="quotations">Quotations</string>
     <string name="favourites">Favourites</string>
+    <string name="logo_app">Logo App</string>
+    <string name="anyadir_fav">Añadir a favoritos</string>
 </resources>
