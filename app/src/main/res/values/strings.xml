@@ -9,4 +9,5 @@
     <string name="favourites">Favourites</string>
     <string name="logo_app">Logo App</string>
     <string name="anyadir_fav">Añadir a favoritos</string>
+    <string name="welcome">Hello %1s!,\n\nRefresh to get a new quotation\n\n(swipe down or options menu)</string>
 </resources>
