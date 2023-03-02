@@ -15,10 +15,15 @@ class NewQuotationViewModel : ViewModel() {
     val quotation : LiveData<Quotation>
         get() = _quotation
 
-    private var _isLoadingData = MutableLiveData<Boolean>(false)
+    private val _isLoadingData = MutableLiveData<Boolean>(false)
     val isLoadingData : LiveData<Boolean>
         get() = _isLoadingData
+
     val isGreetingsVisible = Transformations.map(quotation) { it == null }
+
+    private val _isFavVisible = MutableLiveData<Boolean>(false)
+    val isFavVisible : LiveData<Boolean>
+        get() = _isFavVisible
 
     private fun getUserName() : String {
         return setOf("Alice", "Bob", "Charlie", "David", "Emma").random()
@@ -31,5 +36,10 @@ class NewQuotationViewModel : ViewModel() {
         _quotation.value = Quotation(num, "Quotation $num", "Author $num")
 
         _isLoadingData.value = false
+        _isFavVisible.value = true
+    }
+
+    fun addToFavourites() {
+        _isFavVisible.value = false
     }
 }

@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         (binding.bottomNavigation as NavigationBarView).setupWithNavController(navController)
 
         setSupportActionBar(binding.materialToolbar)
-        val appBarConf : AppBarConfiguration = AppBarConfiguration(setOf(R.id.newQuotationFragment, R.id.favouritesFragment, R.id.settingsFragment))
+        val appBarConf : AppBarConfiguration = AppBarConfiguration(setOf(R.id.newQuotationFragment, R.id.favouritesFragment, R.id.settingsFragment)) //Top level destinations
         setupActionBarWithNavController(navController, appBarConf)
 
         addMenuProvider(this)
@@ -39,6 +39,9 @@ class MainActivity : AppCompatActivity(), MenuProvider {
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        if (menuItem.itemId != R.id.aboutDialogFragment)
+            return false
+
         navController.navigate(R.id.aboutDialogFragment)
         return true
     }
