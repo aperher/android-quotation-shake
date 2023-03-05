@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="get_a_new_quotation">Obtener una cita nueva</string>
+    <string name="favourite_quotations">Citas favoritas</string>
+    <string name="about">Acerca de</string>
+    <string name="aboutDialog">QuotationShake por \n\n Alberto Pérez Herrero \n \n aperher@inf.upv.es \n \n Desarrollado para DADM 2023</string>
+    <string name="settings">Ajustes</string>
+    <string name="quotations">Citas</string>
+    <string name="favourites">Favoritos</string>
+    <string name="anyadir_fav">Añadir a favoritos</string>
+    <string name="welcome">Hola %1s!, \n\n Refresca para obtener una cita nueva \n \n (desliza hacia abajo o opción del menú)</string>
+    <string name="refresh">Refrescar</string>
+    <string name="unable_to_complete_action">No es posible realizar esta acción</string>
+    <string name="anonymous_author">No es posible mostrar informacion de un autor Anonymous</string>
+</resources>

@@ -44,7 +44,7 @@ class NewQuotationFragment : Fragment(R.layout.fragment_new_quotation), MenuProv
             binding.btnAddToFav.isVisible = isVisible
         }
 
-        binding.swipeToRefresh.setOnRefreshListener { viewModel.getNewQuotation() }
+        binding.swipeToRefresh.setOnRefreshListener { getNewQuotation() }
         binding.btnAddToFav.setOnClickListener { viewModel.addToFavourites() }
 
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
@@ -55,6 +55,10 @@ class NewQuotationFragment : Fragment(R.layout.fragment_new_quotation), MenuProv
         _binding = null
     }
 
+    private fun getNewQuotation() {
+        viewModel.getNewQuotation()
+    }
+
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.menu_new_quotation, menu)
     }
@@ -63,7 +67,7 @@ class NewQuotationFragment : Fragment(R.layout.fragment_new_quotation), MenuProv
         if (menuItem.itemId != R.id.refresh)
             return false
 
-        viewModel.getNewQuotation()
+        getNewQuotation()
         return true
     }
 }

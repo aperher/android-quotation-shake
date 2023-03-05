@@ -1,14 +1,16 @@
 <resources>
-    <string name="app_name">QuotationShake</string>
+    <string name="app_name" translatable="false">QuotationShake</string>
     <string name="get_a_new_quotation">Get a new quotation</string>
     <string name="favourite_quotations">Favourite quotations</string>
     <string name="about">About</string>
-    <string name="aboutDialog">QuotationShake by \n\nAlberto Pérez Herrero\n\naperher@inf.upv.es\n\nDeveloped for DADM 2023</string>
+    <string name="aboutDialog">QuotationShake by \n\n Alberto Pérez Herrero\n \n aperher@inf.upv.es\n \n Developed for DADM 2023</string>
     <string name="settings">Settings</string>
     <string name="quotations">Quotations</string>
     <string name="favourites">Favourites</string>
-    <string name="logo_app">Logo App</string>
-    <string name="anyadir_fav">Añadir a favoritos</string>
-    <string name="welcome">Hello %1s!,\n\nRefresh to get a new quotation\n\n(swipe down or options menu)</string>
+    <string name="logo_app" translatable="false">Logo App</string>
+    <string name="anyadir_fav">Add to favourites</string>
+    <string name="welcome">Hello %1s!, \n\n Refresh to get a new quotation \n \n (swipe down or options menu)</string>
     <string name="refresh">Refresh</string>
+    <string name="anonymous_author">It is not possible to show information if author is Anonymous</string>
+    <string name="unable_to_complete_action">It is not possible to complete requested action</string>
 </resources>
