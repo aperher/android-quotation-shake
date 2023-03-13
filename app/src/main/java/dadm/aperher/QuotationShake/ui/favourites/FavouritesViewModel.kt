@@ -1,17 +1,18 @@
 package dadm.aperher.QuotationShake.ui.favourites
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import dadm.aperher.QuotationShake.data.newquotation.NewQuotationRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import model.Quotation
+import javax.inject.Inject
 
-class FavouritesViewModel : ViewModel() {
+@HiltViewModel
+class FavouritesViewModel@Inject constructor(private val repository: NewQuotationRepository) : ViewModel() {
     private val _quotationList = MutableLiveData<List<Quotation>>(getFavouriteQuotation())
     val quotationList : LiveData<List<Quotation>>
         get() = _quotationList
 
-    val isDeleteItemVisible : LiveData<Boolean> = Transformations.map(quotationList) { it.isNotEmpty() }
+    val isDeleteItemVisible : LiveData<Boolean> = quotationList.map { it.isNotEmpty() }
 
     private fun getFavouriteQuotation() : List<Quotation>  =
         listOf(

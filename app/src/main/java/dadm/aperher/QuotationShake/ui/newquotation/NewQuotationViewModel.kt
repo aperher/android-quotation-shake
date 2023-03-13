@@ -1,12 +1,14 @@
 package dadm.aperher.QuotationShake.ui.newquotation
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import dadm.aperher.QuotationShake.data.newquotation.NewQuotationRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import model.Quotation
+import javax.inject.Inject
 
-class NewQuotationViewModel : ViewModel() {
+@HiltViewModel
+class NewQuotationViewModel @Inject constructor( private val repository: NewQuotationRepository) : ViewModel() {
     private val _username = MutableLiveData<String>(getUserName())
     val username : LiveData<String>
         get() = _username
@@ -19,11 +21,15 @@ class NewQuotationViewModel : ViewModel() {
     val isLoadingData : LiveData<Boolean>
         get() = _isLoadingData
 
-    val isGreetingsVisible = Transformations.map(quotation) { it == null }
+    val isGreetingsVisible = quotation.map { it.id.isEmpty() }
 
     private val _isFavVisible = MutableLiveData<Boolean>(false)
     val isFavVisible : LiveData<Boolean>
         get() = _isFavVisible
+
+    private val _exception = MutableLiveData<Throwable?>(null)
+    val exception : LiveData<Throwable?>
+        get() = _exception
 
     private fun getUserName() : String {
         return setOf("Alice", "Bob", "Charlie", "David", "Emma").random()
@@ -31,9 +37,16 @@ class NewQuotationViewModel : ViewModel() {
 
     fun getNewQuotation() {
         _isLoadingData.value = true
-
+/*
         val num = (0..99).random().toString()
         _quotation.value = Quotation(num, "Quotation $num", "Author $num")
+*/
+        viewModelScope.launch {
+            repository.getNewQuotation().fold(
+                onSuccess = { _quotation.value = it },
+                onFailure = { _exception.value = it }
+            )
+        }
 
         _isLoadingData.value = false
         _isFavVisible.value = true
@@ -41,5 +54,9 @@ class NewQuotationViewModel : ViewModel() {
 
     fun addToFavourites() {
         _isFavVisible.value = false
+    }
+
+    fun resetError() {
+        _exception.value = null
     }
 }

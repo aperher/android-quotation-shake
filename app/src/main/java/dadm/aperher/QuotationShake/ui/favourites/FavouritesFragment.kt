@@ -16,7 +16,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import dadm.aperher.QuotationShake.R
 import dadm.aperher.QuotationShake.databinding.FragmentFavouritesBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class FavouritesFragment : Fragment(R.layout.fragment_favourites),
     DeleteAllDialogFragment.ButtonAction, MenuProvider {
     private var _binding: FragmentFavouritesBinding? = null
