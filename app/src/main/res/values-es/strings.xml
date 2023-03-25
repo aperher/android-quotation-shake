@@ -12,4 +12,9 @@
     <string name="refresh">Refrescar</string>
     <string name="unable_to_complete_action">No es posible realizar esta acción</string>
     <string name="anonymous_author">No es posible mostrar informacion de un autor Anonymous</string>
+    <string name="internet_exception">Sin conexión a internet</string>
+    <string name="english_language">Inglés</string>
+    <string name="russian_language">Ruso</string>
+    <string name="choose_language">Seleccione un idioma:</string>
+    <string name="input_username">Introduce tu nombre de usuario:</string>
 </resources>

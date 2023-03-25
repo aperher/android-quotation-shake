@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import dadm.aperher.QuotationShake.databinding.QuotationItemBinding
-import model.Quotation
+import dadm.aperher.QuotationShake.model.Quotation
 
 class QuotationListAdapter(private val itemClicked : ItemClicked) : ListAdapter<Quotation, QuotationListAdapter.ViewHolder>(QuotationDiff) {
     interface ItemClicked {

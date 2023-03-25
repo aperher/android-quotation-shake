@@ -1,4 +1,4 @@
-package dadm.aperher.QuotationShake.di
+package dadm.aperher.QuotationShake.data.di
 
 import android.content.Context
 import android.content.Context.CONNECTIVITY_SERVICE

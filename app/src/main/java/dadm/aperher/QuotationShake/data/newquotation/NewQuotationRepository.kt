@@ -1,6 +1,6 @@
 package dadm.aperher.QuotationShake.data.newquotation
 
-import model.Quotation
+import dadm.aperher.QuotationShake.model.Quotation
 
 interface NewQuotationRepository {
     suspend fun getNewQuotation() : Result<Quotation>

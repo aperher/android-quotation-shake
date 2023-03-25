@@ -3,7 +3,7 @@ package dadm.aperher.QuotationShake.ui.favourites
 import androidx.lifecycle.*
 import dadm.aperher.QuotationShake.data.newquotation.NewQuotationRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import model.Quotation
+import dadm.aperher.QuotationShake.model.Quotation
 import javax.inject.Inject
 
 @HiltViewModel

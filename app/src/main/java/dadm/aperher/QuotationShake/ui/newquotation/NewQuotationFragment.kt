@@ -13,7 +13,7 @@ import androidx.lifecycle.Lifecycle
 import com.google.android.material.snackbar.Snackbar
 import dadm.aperher.QuotationShake.R
 import dadm.aperher.QuotationShake.databinding.FragmentNewQuotationBinding
-import dadm.aperher.QuotationShake.utils.NoInternetException
+import dadm.aperher.QuotationShake.data.utils.NoInternetException
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -51,7 +51,7 @@ class NewQuotationFragment : Fragment(R.layout.fragment_new_quotation), MenuProv
         viewModel.exception.observe(viewLifecycleOwner) { exception ->
             if (exception != null) {
                 if (exception is NoInternetException)
-                    Snackbar.make(requireContext(), view, "No internet connection", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(requireContext(), view, getString(R.string.internet_exception), Snackbar.LENGTH_SHORT).show()
                 else
                     Snackbar.make(requireContext(), view, exception.message ?: "Unknown error", Snackbar.LENGTH_SHORT).show()
                 viewModel.resetError()

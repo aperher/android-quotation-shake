@@ -13,4 +13,9 @@
     <string name="refresh">Refresh</string>
     <string name="anonymous_author">It is not possible to show information if author is Anonymous</string>
     <string name="unable_to_complete_action">It is not possible to complete requested action</string>
+    <string name="internet_exception">No internet connection</string>
+    <string name="english_language">English</string>
+    <string name="russian_language">Russian</string>
+    <string name="choose_language">Choose a language:</string>
+    <string name="input_username">Introduce your username:</string>
 </resources>

@@ -4,11 +4,11 @@ import androidx.lifecycle.*
 import dadm.aperher.QuotationShake.data.newquotation.NewQuotationRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import model.Quotation
+import dadm.aperher.QuotationShake.model.Quotation
 import javax.inject.Inject
 
 @HiltViewModel
-class NewQuotationViewModel @Inject constructor( private val repository: NewQuotationRepository) : ViewModel() {
+class NewQuotationViewModel @Inject constructor(private val repository: NewQuotationRepository) : ViewModel() {
     private val _username = MutableLiveData<String>(getUserName())
     val username : LiveData<String>
         get() = _username
