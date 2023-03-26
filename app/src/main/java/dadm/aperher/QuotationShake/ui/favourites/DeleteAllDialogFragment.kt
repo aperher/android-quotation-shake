@@ -2,18 +2,15 @@ package dadm.aperher.QuotationShake.ui.favourites
 
 
 import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import dadm.aperher.QuotationShake.R
-import dadm.aperher.QuotationShake.ui.MainActivity
 
-class DeleteAllDialogFragment(private val buttonAction: ButtonAction) : DialogFragment() {
-    interface ButtonAction {
-        fun positiveAction()
-        fun negativeAction()
-    }
+class DeleteAllDialogFragment() : DialogFragment() {
+
+    private val viewmodel: FavouritesViewModel by activityViewModels()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         super.onCreateDialog(savedInstanceState)
@@ -22,11 +19,9 @@ class DeleteAllDialogFragment(private val buttonAction: ButtonAction) : DialogFr
             .setTitle(getString(R.string.delete_all_quotations))
             .setMessage(getString(R.string.delete_all_quotes_mssg))
             .setPositiveButton(getString(R.string.delete_fav_quotations)) { _, _ ->
-                buttonAction.positiveAction()
+                viewmodel.deleteAllQuotations()
             }
-            .setNegativeButton(getString(R.string.cancel_operation)) { _, _ ->
-                buttonAction.negativeAction()
-            }
+            .setNegativeButton(getString(R.string.cancel_operation)) { _, _ -> }
             .create()
     }
 }
