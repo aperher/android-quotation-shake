@@ -1,48 +1,45 @@
 package dadm.aperher.QuotationShake.ui.newquotation
 
 import androidx.lifecycle.*
-import dadm.aperher.QuotationShake.data.newquotation.NewQuotationRepository
+import dadm.aperher.QuotationShake.data.favourites.FavouritesRepository
+import dadm.aperher.QuotationShake.data.newquotation.NewQuotationManager
+import dadm.aperher.QuotationShake.data.settings.SettingsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import dadm.aperher.QuotationShake.model.Quotation
 import javax.inject.Inject
 
 @HiltViewModel
-class NewQuotationViewModel @Inject constructor(private val repository: NewQuotationRepository) : ViewModel() {
-    private val _username = MutableLiveData<String>(getUserName())
-    val username : LiveData<String>
-        get() = _username
+class NewQuotationViewModel @Inject constructor(
+    private val newQuotationRepository: NewQuotationManager,
+    private val settingsRepository: SettingsRepository,
+    private val favouritesRepository: FavouritesRepository
+) : ViewModel() {
+    val username: LiveData<String> = settingsRepository.getUsername().asLiveData()
 
     private val _quotation = MutableLiveData<Quotation>()
-    val quotation : LiveData<Quotation>
+    val quotation: LiveData<Quotation>
         get() = _quotation
 
     private val _isLoadingData = MutableLiveData<Boolean>(false)
-    val isLoadingData : LiveData<Boolean>
+    val isLoadingData: LiveData<Boolean>
         get() = _isLoadingData
 
     val isGreetingsVisible = quotation.map { it.id.isEmpty() }
 
     private val _isFavVisible = MutableLiveData<Boolean>(false)
-    val isFavVisible : LiveData<Boolean>
+    val isFavVisible: LiveData<Boolean>
         get() = _isFavVisible
 
     private val _exception = MutableLiveData<Throwable?>(null)
-    val exception : LiveData<Throwable?>
+    val exception: LiveData<Throwable?>
         get() = _exception
-
-    private fun getUserName() : String {
-        return setOf("Alice", "Bob", "Charlie", "David", "Emma").random()
-    }
 
     fun getNewQuotation() {
         _isLoadingData.value = true
-/*
-        val num = (0..99).random().toString()
-        _quotation.value = Quotation(num, "Quotation $num", "Author $num")
-*/
+
         viewModelScope.launch {
-            repository.getNewQuotation().fold(
+            newQuotationRepository.getNewQuotation().fold(
                 onSuccess = { _quotation.value = it },
                 onFailure = { _exception.value = it }
             )
@@ -53,7 +50,10 @@ class NewQuotationViewModel @Inject constructor(private val repository: NewQuota
     }
 
     fun addToFavourites() {
-        _isFavVisible.value = false
+        viewModelScope.launch {
+            favouritesRepository.addQuote(quotation.value!!)
+            _isFavVisible.value = false
+        }
     }
 
     fun resetError() {
