@@ -27,9 +27,11 @@ class NewQuotationViewModel @Inject constructor(
 
     val isGreetingsVisible = quotation.map { it.id.isEmpty() }
 
-    private val _isFavVisible = MutableLiveData<Boolean>(false)
-    val isFavVisible: LiveData<Boolean>
-        get() = _isFavVisible
+    val isFavVisible: LiveData<Boolean> = quotation.switchMap() { newQuotation ->
+        favouritesRepository.getQuote(newQuotation.id).asLiveData()
+    }.map() { favourite ->
+        favourite == null
+    }
 
     private val _exception = MutableLiveData<Throwable?>(null)
     val exception: LiveData<Throwable?>
@@ -46,13 +48,11 @@ class NewQuotationViewModel @Inject constructor(
         }
 
         _isLoadingData.value = false
-        _isFavVisible.value = true
     }
 
     fun addToFavourites() {
         viewModelScope.launch {
             favouritesRepository.addQuote(quotation.value!!)
-            _isFavVisible.value = false
         }
     }
 

@@ -10,7 +10,7 @@ interface FavouritesDataSource {
 
     fun getAllQuotes(): Flow<List<QuotationDto>>
 
-    fun getQuote(id: String): Flow<QuotationDto>
+    fun getQuote(id: String): Flow<QuotationDto?>
 
-    fun deleteAllQuotes()
+    suspend fun deleteAllQuotes()
 }

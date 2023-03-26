@@ -12,14 +12,16 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
+            android:justificationMode="inter_word"
             android:textSize="20sp"
-            android:layout_marginHorizontal="16dp"
             app:layout_constraintBottom_toTopOf="@+id/tvAuthor"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Texto" />
@@ -28,12 +30,12 @@
             android:id="@+id/tvAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvText"
+            app:layout_constraintTop_toBottomOf="@+id/tvText"
             tools:text="Autor" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

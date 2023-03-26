@@ -25,13 +25,13 @@ class FavouritesRepositoryImpl @Inject constructor(private val datasource: Favou
         }
     }
 
-    override fun getQuote(id: String): Flow<Quotation> {
+    override fun getQuote(id: String): Flow<Quotation?> {
         return datasource.getQuote(id).map {
-            it.toDomain()
+            it?.toDomain()
         }
     }
 
-    override fun deleteAllQuotes() {
+    override suspend fun deleteAllQuotes() {
         datasource.deleteAllQuotes()
     }
 }

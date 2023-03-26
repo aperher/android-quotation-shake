@@ -17,10 +17,12 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvWelcomeMessage"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="16dp"
                 android:gravity="center"
                 android:text="@string/welcome"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
@@ -29,31 +31,40 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvQuotationText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:gravity="center"
                 android:justificationMode="inter_word"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/tvQuotationAuthor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"/>
+                app:layout_constraintVertical_chainStyle="packed" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvQuotationAuthor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="italic"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tvQuotationText"
-                app:layout_constraintTop_toBottomOf="@+id/tvQuotationText"/>
+                app:layout_constraintTop_toBottomOf="@+id/tvQuotationText" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnAddToFav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/favourite_border"
             android:layout_gravity="bottom|end"
-            android:contentDescription="@string/anyadir_fav"/>
+            android:layout_margin="16dp"
+            android:contentDescription="@string/anyadir_fav"
+            android:src="@drawable/favourite_border"
+            android:visibility="invisible" />
     </FrameLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

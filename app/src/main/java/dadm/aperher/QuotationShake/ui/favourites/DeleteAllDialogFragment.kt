@@ -6,6 +6,7 @@ import android.content.DialogInterface
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
+import dadm.aperher.QuotationShake.R
 import dadm.aperher.QuotationShake.ui.MainActivity
 
 class DeleteAllDialogFragment(private val buttonAction: ButtonAction) : DialogFragment() {
@@ -18,12 +19,12 @@ class DeleteAllDialogFragment(private val buttonAction: ButtonAction) : DialogFr
         super.onCreateDialog(savedInstanceState)
 
         return AlertDialog.Builder(requireContext())
-            .setTitle("Delete all favourite quotations")
-            .setMessage("Do you really want to delete all quotations?")
-            .setPositiveButton("Delete") { _, _ ->
+            .setTitle(getString(R.string.delete_all_quotations))
+            .setMessage(getString(R.string.delete_all_quotes_mssg))
+            .setPositiveButton(getString(R.string.delete_fav_quotations)) { _, _ ->
                 buttonAction.positiveAction()
             }
-            .setNegativeButton("Cancel") { _, _ ->
+            .setNegativeButton(getString(R.string.cancel_operation)) { _, _ ->
                 buttonAction.negativeAction()
             }
             .create()

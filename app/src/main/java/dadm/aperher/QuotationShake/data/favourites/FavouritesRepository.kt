@@ -10,7 +10,7 @@ interface FavouritesRepository {
 
     fun getAllQuotes(): Flow<List<Quotation>>
 
-    fun getQuote(id: String): Flow<Quotation>
+    fun getQuote(id: String): Flow<Quotation?>
 
-    fun deleteAllQuotes()
+    suspend fun deleteAllQuotes()
 }

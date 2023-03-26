@@ -18,4 +18,8 @@
     <string name="russian_language">Russian</string>
     <string name="choose_language">Choose a language:</string>
     <string name="input_username">Introduce your username:</string>
+    <string name="delete_all_quotations">Delete all quotations</string>
+    <string name="delete_all_quotes_mssg">Do you really want to delete all quotations?</string>
+    <string name="delete_fav_quotations">Delete</string>
+    <string name="cancel_operation">Cancel</string>
 </resources>

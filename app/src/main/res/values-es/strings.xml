@@ -17,4 +17,8 @@
     <string name="russian_language">Ruso</string>
     <string name="choose_language">Seleccione un idioma:</string>
     <string name="input_username">Introduce tu nombre de usuario:</string>
+    <string name="delete_all_quotations">Eliminar todas las citas</string>
+    <string name="delete_all_quotes_mssg">Se van a borrar todas tus citas favoritas ¿Estás seguro?</string>
+    <string name="delete_fav_quotations">Eliminar</string>
+    <string name="cancel_operation">Cancelar</string>
 </resources>
