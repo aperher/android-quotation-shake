@@ -16,4 +16,4 @@ Esta aplicación cuenta con:
 - Arquitectura MVVM.
 - Inyección de dependencias con Dagger Hilt.
 - Correcta gestión de errores.
-- Testing.
+- Testing (Unit testing y UI testing).
