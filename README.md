@@ -1,5 +1,5 @@
 # Quotation Shake
-Esta es una master app, básica pero que reune gran parte de componentes y buenas prácticas que debe tener una aplicación Android.
+Esta es una master app, básica pero que reúne gran parte de componentes y buenas prácticas que debe tener una aplicación Android.
 
 <div align="center">
   <img width="150" src="https://github.com/aperher/android-quotation-shake/assets/100694428/a6fd3091-a912-4260-97a3-8280c68406ff"/>
