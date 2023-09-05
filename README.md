@@ -9,11 +9,11 @@ Esta es una master app, básica pero que reúne gran parte de componentes y buen
 
 Esta aplicación cuenta con:
 
-- Peticiones REST con Retrofit.
-- Base de datos local con Room.
+- Peticiones REST con **Retrofit**.
+- Base de datos local con **Room**.
 - Internacionalización.
 - SharedPreferences para almacenar ajustes de la app.
-- Arquitectura MVVM.
-- Inyección de dependencias con Dagger Hilt.
+- Arquitectura **MVVM**.
+- Inyección de dependencias con **Dagger Hilt**.
 - Correcta gestión de errores.
-- Testing (Unit testing y UI testing).
+- **Testing** (Unit testing y UI testing).
