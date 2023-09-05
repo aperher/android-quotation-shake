@@ -48,18 +48,18 @@ class NewQuotationFragment : Fragment(R.layout.fragment_new_quotation), MenuProv
             binding.btnAddToFav.isVisible = isVisible
         }
 
-        viewModel.exception.observe(viewLifecycleOwner) { exception ->
-            if (exception != null) {
-                if (exception is NoInternetException)
+        viewModel.error.observe(viewLifecycleOwner) { error ->
+            if (error != null) {
+                if (error is NoInternetException)
                     Snackbar.make(requireContext(), view, getString(R.string.internet_exception), Snackbar.LENGTH_SHORT).show()
                 else
-                    Snackbar.make(requireContext(), view, exception.message ?: "Unknown error", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(requireContext(), view, error.message ?: "Unknown error", Snackbar.LENGTH_SHORT).show()
                 viewModel.resetError()
             }
         }
 
         binding.swipeToRefresh.setOnRefreshListener { getNewQuotation() }
-        binding.btnAddToFav.setOnClickListener { viewModel.addToFavourites() }
+        binding.btnAddToFav.setOnClickListener { viewModel.addToFavourite() }
 
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }

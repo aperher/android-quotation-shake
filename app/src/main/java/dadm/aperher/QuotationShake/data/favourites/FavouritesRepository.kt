@@ -1,6 +1,6 @@
 package dadm.aperher.QuotationShake.data.favourites
 
-import dadm.aperher.QuotationShake.model.Quotation
+import dadm.aperher.QuotationShake.domain.model.Quotation
 import kotlinx.coroutines.flow.Flow
 
 interface FavouritesRepository {

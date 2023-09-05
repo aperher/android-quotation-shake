@@ -2,7 +2,7 @@ package dadm.aperher.QuotationShake.data.favourites
 
 import dadm.aperher.QuotationShake.data.favourites.model.toDomain
 import dadm.aperher.QuotationShake.data.favourites.model.toDto
-import dadm.aperher.QuotationShake.model.Quotation
+import dadm.aperher.QuotationShake.domain.model.Quotation
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

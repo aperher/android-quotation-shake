@@ -16,7 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "dadm.aperher.QuotationShake.CustomTestRunner"
     }
 
     buildTypes {
@@ -35,8 +35,8 @@ android {
     buildFeatures {
         viewBinding true
     }
-    kapt {
-        correctErrorTypes true
+    testOptions.unitTests {
+        includeAndroidResources = true
     }
 }
 
@@ -61,7 +61,27 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.5.1'
     implementation 'androidx.room:room-ktx:2.5.1'
     kapt 'androidx.room:room-compiler:2.5.1'
+
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.5.1'
+
+    // AndroidX Test - JVM testing
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
+    testImplementation 'androidx.test:core-ktx:1.5.0'
+    testImplementation 'androidx.test.ext:junit:1.1.5'
+
+    debugImplementation 'androidx.fragment:fragment-testing:1.5.6'
+    debugImplementation 'androidx.test.ext:junit-ktx:1.1.5'
+    debugImplementation 'androidx.test.ext:junit:1.1.5'
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.44'
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.44'
+}
+
+kapt {
+    correctErrorTypes true
 }
